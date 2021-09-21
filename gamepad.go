@@ -6,9 +6,9 @@ type Gamepad struct {
 	state   uint8
 }
 
-// JustPressedButtons returns all buttons that were pressed since the last
+// JustPressed returns all buttons that were pressed since the last
 // update.
-func (g *Gamepad) JustPressedButtons() byte {
+func (g *Gamepad) JustPressed() byte {
 	result := *g.gamepad & (*g.gamepad ^ g.state)
 
 	return result
@@ -17,11 +17,11 @@ func (g *Gamepad) JustPressedButtons() byte {
 // IsJustPressed checks if a specific button was pressed since the last
 // update.
 func (g *Gamepad) IsJustPressed(button byte) bool {
-	return g.JustPressedButtons()&button != 0
+	return g.JustPressed()&button != 0
 }
 
 // IsPressed checks if a specific button is currently pressed.
-func (g *Gamepad) IsButtonJustPressed(button byte) bool {
+func (g *Gamepad) IsPressed(button byte) bool {
 	return *g.gamepad&button != 0
 }
 
