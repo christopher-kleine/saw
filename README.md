@@ -1,6 +1,25 @@
-# WASM-4 Utils
+# SAW - **S**ome **A**dditions (to) **W**ASM-4
 
 A collection of some functions that make the use of the awesome [WASM-4](https://wasm4.org) a bit easier.
+
+## Features:
+
+- [ ] Simple Gamepad API
+	- [x] JustPressed
+	- [x] IsJustPressed
+	- [x] IsPressed
+	- [x] Duration
+	- [ ] JustReleased
+	- [ ] IsJustReleased
+- [ ] Simple PRNG
+	- [x] Int
+	- [x] Intn
+	- [ ] Uint
+	- [ ] Uintn
+- [ ] Tileset-Functions
+	- [ ] DrawTile
+- [ ] Animations
+- [ ] Particle Generators
 
 Hello-World in WASM-4 without utils:
 ```go
@@ -39,7 +58,7 @@ The same using utils:
 package main
 
 import "cart/w4"
-import "christopher-kleine/wasm4-uils"
+import "christopher-kleine/saw"
 
 var smiley = [8]byte{
 	0b11000011,
@@ -51,7 +70,7 @@ var smiley = [8]byte{
 	0b10011001,
 	0b11000011,
 }
-var gamepad = utils.NewGamepad(w4.GAMEPAD1)
+var gamepad = saw.NewGamepad(w4.GAMEPAD1)
 
 //go:export update
 func update() {
